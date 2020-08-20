@@ -5,15 +5,14 @@
 # f(x) = 0 <--> g(x) = x
 
 def g(x):
-    return (x + 7 / x) / 2
+    return (x**2 + 5) ** (1 / 4)
 
 def f(x):
-    return x**2 - 7
+    return x**4 - x**2 - 5
 
 n = 10
-a, b = [2, 3]
-x0 = 2.64575
-
+a, b = [1, 2]
+x0 = 1.67071
 for i in range(10):
     xn = g(x0)
     x0 = xn

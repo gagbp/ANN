@@ -22,7 +22,7 @@ def df(x):
     return -2 * np.sin(x**2) - 1
 
 x0 = 2
-n = 10
+n = 50
 itr = {}
 itr[0] = x0
 for i in range(1, n):

@@ -2,22 +2,24 @@
 
 print("Encontrar coeficientes natural cube spline eo10")
 print("Digite a quantidade de pontos:")
-qtdPontos = 4
-xs=[-2,-1,1,2]
-fxs=[0.2,0.5,0.5,0.2]
+qtdPontos = 20
+xs=[-4.65,-4.62,-4.39,-4.25,-4.01,-3.6,-3.52,-2.62,-0.75,0.47,0.77,0.78,1.44,2.45,2.91,3.06,3.17,3.7,4.49,4.83]
+fxs=[]
 
 #estamos resolvendo o exercicio passado, portanto existem: 24 coeficientes
-As=[0.2,0.5,0.5,0.2]
+As=[]
 Bs=[]
 Cs=[]
 Ds=[]
 
 #lendo os pontos e definindo os ai, i = 0..qtdPontos
 #print("Digite os valores: x [enter] y [enter]")
-#for i in range(0,qtdPontos):
-#    xs.append(float(input()))
-#    fxs.append(float(input()))
-#    As.append(fxs[i])
+def f(x):
+    return 1/(1+x**2)
+
+for i in range(0,qtdPontos):
+    fxs.append(f(xs[i]))
+    As.append(fxs[i])
 
 Hs = []
 

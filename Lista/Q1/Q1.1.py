@@ -4,7 +4,7 @@ def f(x):
 
 print('\n\nmétodo da bisseção\n')
 a, b = [0, 2]
-n = 50 # número de iterações
+n = 100 # número de iterações
 for i in range(n):
     m = (a + b) / 2
     if f(m) == 0:
@@ -13,7 +13,7 @@ for i in range(n):
         b = m
     else:
         a = m
-    print(m, f(m))
+    print(m,";",f(m))
 
 print('\n\nmétodo de Newton\n')
 # derivada de f
@@ -29,7 +29,7 @@ for i in range(1, n):
     x0 = itr[i]
 
 for k, v in itr.items():
-    print(k, v, abs(v - m))
+    print(v,";", abs(v - m))
 
 print('\n\nmétodo das secantes\n')
 
@@ -49,7 +49,7 @@ for i in range(n):
     a, b = b, xn
 
 for k, v in itr.items():
-    print(k, v, abs(v - m))
+    print(v, ";", abs(v - m))
 
 print('\n\nmétodo da posição falsa\n')
 
@@ -64,4 +64,4 @@ for i in range(n):
         b = xn
     else:
         a = xn
-    print(i, xn, abs(xn - m))
+    print(xn,";", abs(xn - m))

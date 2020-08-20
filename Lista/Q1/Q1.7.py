@@ -14,7 +14,7 @@ for i in range(n):
         b = m
     else:
         a = m
-    print(m, f(m))
+    print(i, m, f(m))
 
 print('\n\nmétodo de Newton\n')
 # derivada de f

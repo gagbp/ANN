@@ -21,7 +21,7 @@ def sign(x):
     return f'+{x}'
 
 def equation(pontos):
-    eq = "p(x)="
+    eq = ""
     eq += "".join([f'{sign(a[k])}*x**{k}' for k in range(n)])
     return eq
 
@@ -29,3 +29,16 @@ eq = equation(pontos)
 print(eq)
 
 # obs esse é o mesmo polinômio que o polinômio de Lagrange
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+def poly_f(x):
+    return eval(eq)
+
+xs, ys = zip(*pontos)
+a, b = min(xs) - 0.5, max(xs) + 0.5
+t = np.arange(a, b, 0.01)
+plt.scatter(xs, ys)
+plt.plot(t, poly_f(t), color="red", label="polinômio interpolador")
+plt.show()

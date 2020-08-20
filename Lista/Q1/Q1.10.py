@@ -4,7 +4,7 @@ def f(x):
 
 print('\n\nmétodo da bisseção\n')
 a, b = [0, 2]
-n = 50 # número de iterações
+n = 100 # número de iterações
 for i in range(n):
     m = (a + b) / 2
     if f(m) == 0:
@@ -21,7 +21,7 @@ def df(x):
     return 3*x**2 + 2*x
 
 x0 = 2
-n = 10
+#n = 10
 itr = {}
 itr[0] = x0
 for i in range(1, n):
@@ -33,7 +33,7 @@ for k, v in itr.items():
 
 print('\n\nmétodo das secantes\n')
 
-n = 11
+#n = 11
 x0, x1 = [1, 2]
 itr = {}
 itr[0] = x0
@@ -53,7 +53,7 @@ for k, v in itr.items():
 
 print('\n\nmétodo da posição falsa\n')
 
-n = 30
+#n = 30
 a, b = [1, 2]
 for i in range(n):
     xn = (a * f(b) - b * f(a)) / (f(b) - f(a))

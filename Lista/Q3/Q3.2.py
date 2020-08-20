@@ -1,9 +1,6 @@
 # jacobi
-print('Jacobi\n')
-E = [[4,1,1,6], [2,5,2,3], [1,2,4,11]] # matrix estendida do sistema
-# 4x+y+z=6 --> x = (6 - y - z) / 4
-# 2x+5y+2z=3 --> y = (3 - 2x - 2z) / 5
-# x+2y+4z=11 --> z = (11 - x - 2y) / 4
+print('Jacobi')
+E = [[3,2,1,2], [2,7,2,-3], [1,3,5,3]] # matrix estendida do sistema
 
 def test(matrix, vec):
     err = []
@@ -25,7 +22,7 @@ for i in range(n):
     chute = xn
 
 # Seidel
-print('\n\nGauss Seidel\n')
+print('\nGauss Seidel')
 
 itr = {}
 chute = [0,0,0]

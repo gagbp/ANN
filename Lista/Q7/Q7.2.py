@@ -2,12 +2,12 @@
 
 print("Encontrar coeficientes natural cube spline eo10")
 print("Digite a quantidade de pontos:")
-qtdPontos = 4
-xs=[-2,-1,1,2]
-fxs=[0.2,0.5,0.5,0.2]
+qtdPontos = 5
+xs=[-2,-1,0,1,2]
+fxs=[0.2,0.5,1,0.5,0.2]
 
 #estamos resolvendo o exercicio passado, portanto existem: 24 coeficientes
-As=[0.2,0.5,0.5,0.2]
+As=[0.2,0.5,1,0.5,0.2]
 Bs=[]
 Cs=[]
 Ds=[]

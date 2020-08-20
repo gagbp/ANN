@@ -1,23 +1,26 @@
 #natural cubic spline
+import numpy as np
 
 print("Encontrar coeficientes natural cube spline eo10")
 print("Digite a quantidade de pontos:")
-qtdPontos = 4
-xs=[-2,-1,1,2]
-fxs=[0.2,0.5,0.5,0.2]
+qtdPontos = 5
+xs=[0,0.3,0.9,1.3,2]
+fxs=[]
 
 #estamos resolvendo o exercicio passado, portanto existem: 24 coeficientes
-As=[0.2,0.5,0.5,0.2]
+As=[]
 Bs=[]
 Cs=[]
 Ds=[]
 
 #lendo os pontos e definindo os ai, i = 0..qtdPontos
 #print("Digite os valores: x [enter] y [enter]")
-#for i in range(0,qtdPontos):
-#    xs.append(float(input()))
-#    fxs.append(float(input()))
-#    As.append(fxs[i])
+def f(x):
+    return 1/(np.sqrt(1+x**2))
+
+for i in range(0,qtdPontos):
+    fxs.append(f(xs[i]))
+    As.append(fxs[i])
 
 Hs = []
 

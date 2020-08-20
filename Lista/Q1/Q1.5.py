@@ -54,7 +54,7 @@ for k, v in itr.items():
 
 print('\n\nmétodo da posição falsa\n')
 
-n = 30
+n = 70
 a, b = [1, 2]
 for i in range(n):
     xn = (a * f(b) - b * f(a)) / (f(b) - f(a))

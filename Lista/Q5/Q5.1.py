@@ -1,54 +1,40 @@
-pontos = [(-2.5, 0.89), (-2.0, -1.18), (-1.5, 1.88), (-1.0, 4.06), (-0.5, 1.21)]
+from sympy import *
 
-def prod(lista):
-    p = 1
-    for i in lista:
-        p *= i
-    return p
+grau = 4
 
-def lagrange(pontos, x):
-    # retorna o valor do polinômio de Lagrange que interpola
-    # a lista 'pontos' calculado no ponto x
-    xs, ys = zip(*pontos)
-    soma = 0
-    for k, y in enumerate(ys):
-        xk = xs[k]
-        Lk_numerador = prod([x - xi for i, xi in enumerate(xs) if i != k])
-        Lk_denominador = prod([xk - xi for i, xi in enumerate(xs) if i != k])
-        soma += y * (Lk_numerador / Lk_denominador)
-    return soma
+#os xs e ys, pontos
+xk=[-2.5, -2.0, -1.5, -1.0, -0.5]
+fk=[0.89,-1.18,1.88,4.06,1.21]
+#
 
-def p(x):
-    return lagrange(pontos, x)
+#as variaveis
+x=var('x')
+#
 
-import matplotlib.pyplot as plt
+#os coeficientes de Lagrange
+Lk=[]
+#
 
-# função para interpolar
-def f(x):
-    return 
+#P(x)
 
-# usado para desenhar o gráfico da função
-# pontos no intervalo [-1, 1]
-t = [-1 + i * (2 / 999) for i in range(1000)]
-ft = [f(i) for i in t]
-plt.plot(t, ft, label="gráfico de $f(x)")
-# plt.show()
+print("f(x)=")
+print(fk)
 
-# polinômio interpolador
-# lista de pontos no intervalo [-1, 1]
-n = 20
-xs = [-1 + i * (2 / (n - 1)) for i in range(n)]
-ys = [f(i) for i in xs]
-pontos = [(x, f(x)) for x in xs]
+for i in range(0,len(xk)):
+    L = 1.0
+    for j in range (0,len(xk)):
+        if i!= j:
+            # print('x - x{} / x{} - x{}'.format(j, i, j))
+            L = L * (x- xk[j])/(xk[i]-xk[j])
+    Lk.append(L)
+    print("L{} = {}\n".format(i, expand(Lk[i])))
 
-# plotar os 'pontos'
-plt.scatter(xs, ys)
+print("\n")
+a=x-x
+print("P(x) = ")
+for i in range (0, len(xk)):
+    a = a+expand(Lk[i] * fk[i])
+    print("{} + ".format(expand(Lk[i] * fk[i])))
 
-# plotar o gráfico de p(x)
-pt = [p(i) for i in t]
-plt.plot(t, pt, label="polinômio interpolador")
-plt.legend()
-plt.title(f"{n} pontos")
-# Fenômeno de Runge
-# plt.savefig(f'{n}pontos', dpi=300)
-plt.show()
+print('\nExpandindo P(x) = ')
+print(expand(a))

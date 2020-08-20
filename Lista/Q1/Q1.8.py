@@ -5,7 +5,7 @@ def f(x):
 
 print('\n\nmétodo da bisseção\n')
 a, b = [0, 2]
-n = 50 # número de iterações
+n = 100 # número de iterações
 for i in range(n):
     m = (a + b) / 2
     if f(m) == 0:
@@ -14,7 +14,7 @@ for i in range(n):
         b = m
     else:
         a = m
-    print(m, f(m))
+    print(i, m, f(m))
 
 print('\n\nmétodo de Newton\n')
 # derivada de f

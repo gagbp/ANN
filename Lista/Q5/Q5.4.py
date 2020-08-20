@@ -1,54 +1,41 @@
-pontos = [(-2.5,-5.6), (-2.0,-4.03), (-1.5,-0.4), (-1.0,-1.12), (-0.5,1.51), (0.0,2.98), (0.5,-4.59), (1.0,0.56), (1.5,-4.43),(2.0,-5.53), (2.5,2.14), (3.0,4.02), (3.5,0.85), (4.0,1.37), (4.5,5.26), (5.0,2.79), (5.5,5.16), (6.0,-2.28), (6.5,-2.9), (7.0,-0.61), (7.5,-3.93), (8.0,2.04), (8.5,5.61), (9.0,-2.09), (9.5,1.55), (10.0,-0.59), (10.5,-5.47), (11.0,-5.5),(11.5,2.64), (12.0,2.0), (12.5,5.1)]
 
-def prod(lista):
-    p = 1
-    for i in lista:
-        p *= i
-    return p
+from sympy import *
 
-def lagrange(pontos, x):
-    # retorna o valor do polinômio de Lagrange que interpola
-    # a lista 'pontos' calculado no ponto x
-    xs, ys = zip(*pontos)
-    soma = 0
-    for k, y in enumerate(ys):
-        xk = xs[k]
-        Lk_numerador = prod([x - xi for i, xi in enumerate(xs) if i != k])
-        Lk_denominador = prod([xk - xi for i, xi in enumerate(xs) if i != k])
-        soma += y * (Lk_numerador / Lk_denominador)
-    return soma
+grau = 4
 
-def p(x):
-    return lagrange(pontos, x)
+#os xs e ys,   pontos
+xk=[-2.5, -2.0, -1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0, 10.5, 11.0, 11.5, 12.0, 12.5]
+fk=[-5.6, -4.03, -0.4, -1.12, 1.51, 2.98, -4.59, 0.56, -4.43, -5.53, 2.14, 4.02, 0.85, 1.37, 5.26, 2.79, 5.16, -2.28, -2.9, -0.61, -3.93, 2.04, 5.61, -2.09, 1.55, -0.59, -5.47, -5.5, 2.64, 2.0, 5.1]
+#
 
-import matplotlib.pyplot as plt
+#as variaveis
+x=var('x')
+#
 
-# função para interpolar
-def f(x):
-    return 
+#os coeficientes de Lagrange
+Lk=[]
+#
 
-# usado para desenhar o gráfico da função
-# pontos no intervalo [-1, 1]
-t = [-1 + i * (2 / 999) for i in range(1000)]
-ft = [f(i) for i in t]
-plt.plot(t, ft, label="gráfico de $f(x)")
-# plt.show()
+#P(x)
 
-# polinômio interpolador
-# lista de pontos no intervalo [-1, 1]
-n = 20
-xs = [-1 + i * (2 / (n - 1)) for i in range(n)]
-ys = [f(i) for i in xs]
-pontos = [(x, f(x)) for x in xs]
+print("f(x)=")
+print(fk)
 
-# plotar os 'pontos'
-plt.scatter(xs, ys)
+for i in range(0,len(xk)):
+    L = 1.0
+    for j in range (0,len(xk)):
+        if i!= j:
+            # print('x - x{} / x{} - x{}'.format(j, i, j))
+            L = L * (x- xk[j])/(xk[i]-xk[j])
+    Lk.append(L)
+    print("L{} = {}\n".format(i, expand(Lk[i])))
 
-# plotar o gráfico de p(x)
-pt = [p(i) for i in t]
-plt.plot(t, pt, label="polinômio interpolador")
-plt.legend()
-plt.title(f"{n} pontos")
-# Fenômeno de Runge
-# plt.savefig(f'{n}pontos', dpi=300)
-plt.show()
+print("\n")
+a=x-x
+print("P(x) = ")
+for i in range (0, len(xk)):
+    a = a+expand(Lk[i] * fk[i])
+    print("{} + ".format(expand(Lk[i] * fk[i])))
+
+print('\nExpandindo P(x) = ')
+print(expand(a))

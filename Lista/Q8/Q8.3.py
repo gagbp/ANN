@@ -3,7 +3,7 @@ import numpy as np
 import sympy as sy
 
 def f(x):
-    return math.cos(x ** x)
+    return x**(math.cos(x))
 
 x0 = 1
 
