@@ -29,20 +29,25 @@ def F(n):
     else:
         return c(n)*T(n) + F(n-1)
 
-print("Digite o N: ")
-a = int(input())
-'''
-for i in range(0,a+1):
-    print("T{} = {}".format(i,T(i)))
-    print("c{} = {}\n".format(i,c(i)))
-'''
-aprox = F(a)
+print("f(x) = {}\n".format(f(x)))
 
-print("f(x) = {}".format(f(x)))
-print("F(x) = {}".format(aprox))
+print("Digite N: ")
+N = int(input())
 
-p = plot(f(x), aprox, (x, -1, 1), show=False)
+Ts = list()
+Cs = list()
+
+for i in range(0,N+1):
+    Ts.append(T(i))
+    Cs.append(c(i))
+
+print("c = {}".format(Cs))
+Fs = Cs[0]*Ts[0]
+for i in range(1,N+1):
+    Fs += Cs[i]*Ts[i]
+
+print("F(x) = {}\n".format(Fs))
+
+p = plot(f(x), Fs, (x, -1, 1), show=False)
 p[1].line_color = 'r'
-
 p.show()
-
