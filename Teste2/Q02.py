@@ -7,7 +7,7 @@ import math
 
 exact = 1.27841
 
-a, b = -0.55554, 1.08364
+a, b = -0.51031, 0.86863
 def f(x):
     return math.exp(-x ** 2)
 
@@ -19,7 +19,7 @@ def simpson(f, h, xs):
     soma += 4 * sum([f(xs[i]) for i in range(1, last, 2)])
     return (h / 3) * soma
 
-for n in range(10):
+for n in range(9):
     h = (b - a) / 2 ** n
     xs = [a + k * h for k in range(2 ** n + 1)]
     aprox = simpson(f, h, xs)

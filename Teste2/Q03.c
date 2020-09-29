@@ -14,7 +14,7 @@ são aproximações para o valor da integral ∫0.75−0.64e−x2dx obtidas usan
 // escrever a regra dos trapézios para a função f: F1
 double F1(double h) {
     // aqui você pode modificar
-    double a = -0.64, b = 0.75;
+    double a = -0.85, b = 0.87;
     double n = (b - a) / h;
     double f(double x) {
         return exp(- x * x);
@@ -56,4 +56,6 @@ int main() {
 /*
 aprox: 1.2530118679927178        erro: 0.5061877351807178
 aprox: 1.1950387181340001        erro: 0.4482145853220001
+
+1.192632303445056
 */

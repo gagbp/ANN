@@ -12,7 +12,7 @@ Para o cálculo das integrais use a regra dos Trapézios com n=128. subintervalo
 import numpy as np
 import matplotlib.pyplot as plt
 
-a, b = -0.838, 0.946
+a, b = -0.87, 0.915
 
 def f(x):
     return 2*np.sin(x) + np.cos(x)

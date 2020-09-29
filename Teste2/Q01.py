@@ -7,7 +7,7 @@ import math
 
 exact = 0.755815
 
-a, b = -0.32902, 0.4709
+a, b = -0.37744, 0.96498
 def f(x):
     return math.exp(-x ** 2)
 

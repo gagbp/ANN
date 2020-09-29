@@ -12,12 +12,12 @@ import numpy as np
 # y' = 2.53y(1−x)+2.14x+0.63, y(1.28) = 1.03
 # possui única solução pelo EXU
 
-x0, y0 = 1.28,1.03
+x0, y0 = 0.67,3.49
 h = 0.125 # tamanho do passo
 n = 11
 
 def f(x, y):
-    return 2.53*y*(1-x) + 2.14*x + 0.63
+    return 1.9*y*(1-x) + 1.18*x + 1.77
 
 def solucao(x):
     return np.e**x*(2.53 - 1.265*x)

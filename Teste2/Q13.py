@@ -13,12 +13,12 @@ import numpy as np
 # y' = 2.34*y*(1−x) + 2.49*x + 0.78, y(0.74) = 4.1
 # possui única solução pelo EXU
 
-x0, y0 = 0.74, 4.1
+x0, y0 = 2.59, 3.21
 h = 0.125 # tamanho do passo
 n = 11
 
 def f(x, y):
-    return 2.34*y*(1 - x) + 2.49 * x + 0.78
+    return 1.12*y*(1 - x) + 1.15 * x + 0.91
 
 def solucao_do_pvi(x):
     return np.e**x*(2.34 - 1.17*x)
